@@ -230,7 +230,7 @@
 		<spring.version>4.2.3.RELEASE</spring.version>
 		
 		<!-- file names -->
-		<jdbc.properties.file>jdbcCars.properties</jdbc.properties.file>
+		<jdbc.properties.file>jdbc-microappName.properties</jdbc.properties.file>
 		
 		
     </properties>

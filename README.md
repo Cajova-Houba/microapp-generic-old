@@ -4,7 +4,7 @@ Generic microapplication. Without any particular entities or DAOs. Can be builde
 The purpose is to create persistent classes, their DAOs and then use different module for displaying.
 
 If you want to use this, you should also do quite a lot of renaming. I will try to automate this later, but for now, here
-is a list of thing you _should_ rename:
+is a list of things you _should_ rename:
 
 * Every file with name containing 'microappName'. Don't forget to update reference in applicationContext-*-jpa.xml. 
 * Also, if you change the name of jdbc-microappName.properties (which you certainly should), don't forget to change the jdbc.properties.file property in pom.xml
