@@ -13,4 +13,4 @@ is a list of things you _should_ rename:
 * Update references to those files (and entity manager factory bean) in org.microapp.generic.dao.jpa.BaseDaoTestCase 
 * Update reference to the persistence unit in org.microapp.generic.dao.jpa.GenericDaoJpa
 
-This module contains only generic package with gneric object (org.microapp.generic.*). For keeping things clear, I recomend to create a package org.microapp.microappName and put all your sources here.
+This module contains only generic package with gneric object (org.microapp.generic.*). For keeping things clear, I recomend to create a package org.microapp.microappName and put all your sources here. After creating this package, dont't forget to update <context:component-scan /> in applicationConfig-*-.jpa.xml.
