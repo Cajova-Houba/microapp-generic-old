@@ -12,3 +12,5 @@ is a list of things you _should_ rename:
 * Persistence unit name in META-INF/persistence-microappName.xml. 
 * Update references to those files in org.microapp.generic.dao.jpa.BaseDaoTestCase 
 * Update reference to the persistence unit in org.microapp.generic.dao.jpa.GenericDaoJpa
+
+This module contains only generic package with gneric object (org.microapp.generic.*). For keeping things clear, I recomend to create a package org.microapp.microappName and put all your sources here.
