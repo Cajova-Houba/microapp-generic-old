@@ -32,7 +32,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
                "classpath:**/applicationContext*.xml"})
 @Transactional
 public abstract class BaseDaoTestCase {
-    /**
+
+	private final String ENTITY_MANAGER_FACTORY = "entityManagerFactoryGeneric"; 
+	
+	/**
      * Log variable for all child classes. Uses LogFactory.getLog(getClass()) from Commons Logging
      */
     protected final Log log = LogFactory.getLog(getClass());
@@ -83,7 +86,7 @@ public abstract class BaseDaoTestCase {
      */
     @Autowired
     public void flushSearchIndexes(ApplicationContext applicationContext) {
-        EntityManagerFactory entityManagerFactory = (EntityManagerFactory) applicationContext.getBean("entityManagerFactory");
+        EntityManagerFactory entityManagerFactory = (EntityManagerFactory) applicationContext.getBean(ENTITY_MANAGER_FACTORY);
         FullTextEntityManager fullTextEntityMgr = Search.getFullTextEntityManager(entityManagerFactory.createEntityManager());
         fullTextEntityMgr.flushToIndexes();
     }

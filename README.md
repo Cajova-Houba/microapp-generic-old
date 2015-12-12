@@ -10,7 +10,7 @@ is a list of things you _should_ rename:
 * Also, if you change the name of jdbc-microappName.properties (which you certainly should), don't forget to change the jdbc.properties.file property in pom.xml
 * Every bean in xml context files (*-jpa.xml and *-resources.xml) with name containing 'generic' or 'Generic'
 * Persistence unit name in META-INF/persistence-microappName.xml. 
-* Update references to those files in org.microapp.generic.dao.jpa.BaseDaoTestCase 
+* Update references to those files (and entity manager factory bean) in org.microapp.generic.dao.jpa.BaseDaoTestCase 
 * Update reference to the persistence unit in org.microapp.generic.dao.jpa.GenericDaoJpa
 
 This module contains only generic package with gneric object (org.microapp.generic.*). For keeping things clear, I recomend to create a package org.microapp.microappName and put all your sources here.
