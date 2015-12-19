@@ -114,7 +114,6 @@ public class GenericAccessDaoJpa<T extends BaseAccessObject, PK extends Serializ
     /**
      * {@inheritDoc}
      */
-    @Transactional
     public T save(T object) {
         return this.entityManager.merge(object);
     }

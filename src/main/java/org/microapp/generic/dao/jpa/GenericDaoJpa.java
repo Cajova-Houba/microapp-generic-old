@@ -128,7 +128,6 @@ public class GenericDaoJpa<T, PK extends Serializable> implements GenericDao<T, 
     /**
      * {@inheritDoc}
      */
-    @Transactional
     public T save(T object) {
         return this.entityManager.merge(object);
     }
