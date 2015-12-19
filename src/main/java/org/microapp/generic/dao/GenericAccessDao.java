@@ -3,15 +3,17 @@ package org.microapp.generic.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import org.microapp.generic.model.BaseAccessObject;
+
 
 /**
- * Use this dao for accessing microapplication from another module
+ * Use this interface whe creating DAOs for entities which implement BaseAccessObject
  * @author Zdenda
  *
  * @param <T>
  * @param <PK>
  */
-public interface GenericAccessDao<T, PK extends Serializable> extends GenericDao {
+public interface GenericAccessDao<T extends BaseAccessObject, PK extends Serializable> extends GenericDao {
 
 	/*
 	 * ========================
