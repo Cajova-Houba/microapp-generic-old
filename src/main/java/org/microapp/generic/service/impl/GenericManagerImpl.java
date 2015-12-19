@@ -5,6 +5,8 @@ import org.apache.commons.logging.LogFactory;
 import org.microapp.generic.dao.GenericDao;
 import org.microapp.generic.service.GenericManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -88,6 +90,10 @@ public class GenericManagerImpl<T, PK extends Serializable> implements GenericMa
     /**
      * {@inheritDoc}
      */
+    @Transactional (
+    		value = "transactionManagerGeneric",
+    		propagation = Propagation.REQUIRES_NEW
+    		)
     public T save(T object) {
         return dao.save(object);
     }
