@@ -16,6 +16,10 @@ public abstract class BaseAccessObject extends BaseObject {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Name for querries in generic dao.
+	 */
+	public static final String ACCESS_ID_COLUMN_NAME = "personId";
 	
 	@Column(name="person_id")
 	protected long personId;
@@ -30,4 +34,5 @@ public abstract class BaseAccessObject extends BaseObject {
 		this.personId = personId;
 	}
 
+	
 }
