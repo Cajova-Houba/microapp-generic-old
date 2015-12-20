@@ -202,7 +202,7 @@
         <amp.genericCore>true</amp.genericCore>
         <amp.fullSource>false</amp.fullSource>
         <dao.framework>hibernate</dao.framework>
-        <db.name>microapp_houses</db.name>
+        <db.name>microapp_generic</db.name>
         <web.framework>spring</web.framework>
 
         <!-- Framework/Plugin versions -->
