@@ -1,19 +1,22 @@
-package org.microapp.generic.dao;
+package org.microapp.microappName.generic.dao;
 
 import java.io.Serializable;
 import java.util.List;
 
+import org.microapp.microappName.generic.model.BaseAccessObject;
+
+
 /**
- * Generic DAO (Data Access Object) with common methods to CRUD POJOs.
+ * Use this interface whe creating DAOs for entities which implement BaseAccessObject.
+ * 
+ * This interface also has same methods as GenericDao interface. Just extending GenericDao interface
+ * caused problems with overriding.
+ * @author Zdenda
  *
- * <p>Extend this interface if you want typesafe (no casting necessary) DAO's
- * for your domain objects.
- *
- * @author <a href="mailto:bwnoll@gmail.com">Bryan Noll</a>
- * @param <T> a type variable
- * @param <PK> the primary key for that type
+ * @param <T>
+ * @param <PK>
  */
-public interface GenericDao<T, PK extends Serializable> {
+public interface GenericAccessDao<T extends BaseAccessObject, PK extends Serializable> {
 
 	/*
 	 * ========================
@@ -22,6 +25,8 @@ public interface GenericDao<T, PK extends Serializable> {
 	 */
 	
 	
+	public List<T> getAllForPerson(PK personId);
+	
 	
 	/*
 	 * ===============================
@@ -29,7 +34,10 @@ public interface GenericDao<T, PK extends Serializable> {
 	 * =============================== 
 	 */
 	
-    /**
+	
+	/* GENERIC DAO METHODS*/
+	
+	/**
      * Generic method used to get all objects of a particular type. This is the
      * same as lookup up all rows in a table.
      *
@@ -87,5 +95,5 @@ public interface GenericDao<T, PK extends Serializable> {
      * @param object the object to remove
      */
     void remove(T object);
-
+	
 }

@@ -1,10 +1,4 @@
-package org.microapp.generic.dao.jpa;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.PersistenceContext;
+package org.microapp.microappName.generic.dao.jpa;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,6 +6,13 @@ import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.queryParser.ParseException;
@@ -19,30 +20,15 @@ import org.apache.lucene.util.Version;
 import org.hibernate.search.SearchException;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.Search;
-import org.microapp.generic.dao.GenericDao;
+import org.microapp.microappName.generic.dao.GenericAccessDao;
+import org.microapp.microappName.generic.dao.GenericDao;
+import org.microapp.microappName.generic.model.BaseAccessObject;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * This class serves as the Base class for all other DAOs - namely to hold
- * common CRUD methods that they might all use. You should only need to extend
- * this class when your require custom CRUD logic.
- *
- * <p>To register this class in your Spring context file, use the following XML.
- * <pre>
- *      &lt;bean id="fooDao" class="org.appfuse.dao.hibernate.GenericDaoJpaHibernate"&gt;
- *          &lt;constructor-arg value="org.appfuse.model.Foo"/&gt;
- *          &lt;property name="sessionFactory" ref="sessionFactory"/&gt;
- *      &lt;/bean&gt;
- * </pre>
- *
- * @author <a href="mailto:bwnoll@gmail.com">Bryan Noll</a>
- *      Updated by jgarcia: update hibernate3 to hibernate4
- * @author jgarcia (update: added full text search + reindexing)
- * @param <T> a type variable
- * @param <PK> the primary key for that type
- */
-public class GenericDaoJpa<T, PK extends Serializable> implements GenericDao<T, PK> {
-    /**
+public class GenericAccessDaoJpa<T extends BaseAccessObject, PK extends Serializable> implements
+		GenericAccessDao<T, PK> {
+
+	/**
      * Log variable for all child classes. Uses LogFactory.getLog(getClass()) from Commons Logging
      */
     protected final Log log = LogFactory.getLog(getClass());
@@ -62,7 +48,7 @@ public class GenericDaoJpa<T, PK extends Serializable> implements GenericDao<T, 
      * Use this constructor when subclassing or using dependency injection.
      * @param persistentClass the class type you'd like to persist
      */
-    public GenericDaoJpa(final Class<T> persistentClass) {
+    public GenericAccessDaoJpa(final Class<T> persistentClass) {
         this.persistentClass = persistentClass;
         defaultAnalyzer = new StandardAnalyzer(Version.LUCENE_36);
     }
@@ -73,7 +59,7 @@ public class GenericDaoJpa<T, PK extends Serializable> implements GenericDao<T, 
      * @param persistentClass the class type you'd like to persist
      * @param entityManager the configured EntityManager for JPA implementation.
      */
-    public GenericDaoJpa(final Class<T> persistentClass, EntityManager entityManager) {
+    public GenericAccessDaoJpa(final Class<T> persistentClass, EntityManager entityManager) {
         this.persistentClass = persistentClass;
         this.entityManager = entityManager;
         defaultAnalyzer = new StandardAnalyzer(Version.LUCENE_36);
@@ -174,4 +160,15 @@ public class GenericDaoJpa<T, PK extends Serializable> implements GenericDao<T, 
     public void reindexAll(boolean async) {
         HibernateSearchJpaTools.reindexAll(async, getEntityManager());
     }
+
+	public List<T> getAllForPerson(PK personId) {
+		// TODO Auto-generated method stub
+		String query = "SELECT obj FROM "+this.persistentClass.getName()+ " obj WHERE "+BaseAccessObject.ACCESS_ID_COLUMN_NAME+"=?";
+		Query q = this.entityManager.createQuery(query);
+		q.setParameter(1, personId);
+		
+		return q.getResultList();
+	}
+
+
 }

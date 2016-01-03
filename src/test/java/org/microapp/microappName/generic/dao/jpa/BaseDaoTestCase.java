@@ -1,4 +1,4 @@
-package org.microapp.generic.dao.jpa;
+package org.microapp.microappName.generic.dao.jpa;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.logging.Log;

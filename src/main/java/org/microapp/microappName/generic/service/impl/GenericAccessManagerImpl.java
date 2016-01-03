@@ -1,13 +1,13 @@
-package org.microapp.generic.service.impl;
+package org.microapp.microappName.generic.service.impl;
 
 import java.io.Serializable;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.microapp.generic.dao.GenericAccessDao;
-import org.microapp.generic.model.BaseAccessObject;
-import org.microapp.generic.service.GenericAccessManager;
+import org.microapp.microappName.generic.dao.GenericAccessDao;
+import org.microapp.microappName.generic.model.BaseAccessObject;
+import org.microapp.microappName.generic.service.GenericAccessManager;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 

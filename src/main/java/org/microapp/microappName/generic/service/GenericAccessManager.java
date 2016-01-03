@@ -1,22 +1,29 @@
-package org.microapp.generic.service;
+package org.microapp.microappName.generic.service;
 
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * Generic Manager that talks to GenericDao to CRUD POJOs.
- *
- * <p>Extend this interface if you want typesafe (no casting necessary) managers
- * for your domain objects.
- *
- * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
- *  Updated by jgarcia: added full text search + reindexing
- * @param <T> a type variable
- * @param <PK> the primary key for that type
- */
-public interface GenericManager<T, PK extends Serializable> {
+import org.microapp.microappName.generic.model.BaseAccessObject;
 
-    /**
+public interface GenericAccessManager<T extends BaseAccessObject, PK extends Serializable> {
+
+	/*
+	 * ========================
+	 * MICROAPPLICATION METHODS
+	 * ======================== 
+	 */
+	
+	
+	public List<T> getAllForPerson(PK personId);
+	
+	
+	/*
+	 * ===============================
+	 * END OF MICROAPPLICATION METHODS
+	 * =============================== 
+	 */
+	
+	 /**
      * Generic method used to get all objects of a particular type. This
      * is the same as lookup up all rows in a table.
      * @return List of populated objects
@@ -59,24 +66,4 @@ public interface GenericManager<T, PK extends Serializable> {
      * @param id the identifier (primary key) of the object to remove
      */
     void remove(PK id);
-
-	//    /**
-	//     * Generic method to search for an object.
-	//     * @param searchTerm the search term
-	//     * @param clazz type of class to search for.
-	//     * @return a list of matched objects
-	//     */
-	//    List<T> search(String searchTerm, Class clazz);
-	//    /**
-	//     * Generic method to regenerate full text index of the persistent class T
-	//     */
-	//    void reindex();
-	//
-	//    /**
-	//     * Generic method to regenerate full text index of all indexed classes
-	//     *
-	//     * @param async
-	//     *            true to perform the reindexing asynchronously
-	//     */
-	//    void reindexAll(boolean async);
 }

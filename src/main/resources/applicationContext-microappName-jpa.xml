@@ -66,5 +66,8 @@
 
     <!-- Activates scanning of @Repository -->
     <context:component-scan base-package="org.microapp.microappName.dao"/>
+    
+    <!-- Activates scanning of @Service -->
+    <context:component-scan base-package="org.microapp.microappName.service"/>
 
 </beans>
