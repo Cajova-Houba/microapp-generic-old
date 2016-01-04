@@ -41,6 +41,7 @@
         </property>
     </bean>
 
+	<!-- Persistence unit manager -->
     <bean id="persistenceUnitManagerGeneric" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
         <property name="persistenceXmlLocations">
             <list>
