@@ -3,6 +3,8 @@ Generic microapplication. Without any particular entities or DAOs. Can be builde
 
 The purpose is to create persistent classes, their DAOs and then use different module for displaying.
 
+For more detailed info check the *manual.pdf*
+
 If you want to use this, you should also do quite a lot of renaming. I will try to automate this later, but for now, here
 is a list of things you _should_ rename:
 
