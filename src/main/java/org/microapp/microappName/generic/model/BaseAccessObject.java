@@ -4,7 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
 /**
- * Use this class for entities which are bound to a member - entities whichc should have some sort of "member_id" field.
+ * Use this class for entities which are bound to a member - entities which should have some sort of "member_id" field.
+ * 
+ * Right now, the personId field reassembles the ID column in the membership table. I will add that connection into 
+ * this generic module later.
+ * 
  * @author Zdenda
  *
  */
@@ -17,7 +21,7 @@ public abstract class BaseAccessObject extends BaseObject {
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * Name for querries in generic dao.
+	 * Name for queries in generic access DAO.
 	 */
 	public static final String ACCESS_ID_COLUMN_NAME = "personId";
 	

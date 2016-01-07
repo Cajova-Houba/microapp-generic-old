@@ -11,6 +11,8 @@ import javax.persistence.MappedSuperclass;
  * Base class for Model objects. Child objects should implement toString(),
  * equals() and hashCode().
  * 
+ * Already contains the ID field, so it't not necessary to declare a new one in child classes.
+ * 
  * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
  */
 @MappedSuperclass

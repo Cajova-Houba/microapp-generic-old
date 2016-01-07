@@ -14,20 +14,6 @@ import java.util.List;
  * @param <PK> the primary key for that type
  */
 public interface GenericDao<T, PK extends Serializable> {
-
-	/*
-	 * ========================
-	 * MICROAPPLICATION METHODS
-	 * ======================== 
-	 */
-	
-	
-	
-	/*
-	 * ===============================
-	 * END OF MICROAPPLICATION METHODS
-	 * =============================== 
-	 */
 	
     /**
      * Generic method used to get all objects of a particular type. This is the

@@ -47,6 +47,9 @@ public class GenericDaoJpa<T, PK extends Serializable> implements GenericDao<T, 
      */
     protected final Log log = LogFactory.getLog(getClass());
 
+    /**
+     * Name of the persistence unit located in resources/META-INF/persistence-microappName.xml
+     */
     public static final String PERSISTENCE_UNIT_NAME = "ApplicationEntityManagerGeneric";
 
     /**

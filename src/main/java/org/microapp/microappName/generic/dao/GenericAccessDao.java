@@ -7,10 +7,10 @@ import org.microapp.microappName.generic.model.BaseAccessObject;
 
 
 /**
- * Use this interface whe creating DAOs for entities which implement BaseAccessObject.
+ * Use this interface when creating DAOs for entities which implement BaseAccessObject.
  * 
  * This interface also has same methods as GenericDao interface. Just extending GenericDao interface
- * caused problems with overriding.
+ * caused problems with overriding so I made a new class.
  * @author Zdenda
  *
  * @param <T>
@@ -24,7 +24,11 @@ public interface GenericAccessDao<T extends BaseAccessObject, PK extends Seriali
 	 * ======================== 
 	 */
 	
-	
+	/**
+	 * Returns a List of object which personId field matches provided parameter.
+	 * @param personId
+	 * @return
+	 */
 	public List<T> getAllForPerson(PK personId);
 	
 	

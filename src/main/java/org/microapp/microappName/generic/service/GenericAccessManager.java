@@ -13,7 +13,11 @@ public interface GenericAccessManager<T extends BaseAccessObject, PK extends Ser
 	 * ======================== 
 	 */
 	
-	
+	/**
+	 * Returns a List of object which personId field matches provided parameter.
+	 * @param personId
+	 * @return
+	 */
 	public List<T> getAllForPerson(PK personId);
 	
 	

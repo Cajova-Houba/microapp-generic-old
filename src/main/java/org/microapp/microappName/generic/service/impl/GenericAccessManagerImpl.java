@@ -11,6 +11,13 @@ import org.microapp.microappName.generic.service.GenericAccessManager;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * Basically the same class as GenericManagerImpl, but it also implements the getAllForPerson() method.
+ * @author Zdenda
+ *
+ * @param <T>
+ * @param <PK>
+ */
 public class GenericAccessManagerImpl<T extends BaseAccessObject, PK extends Serializable> implements GenericAccessManager<T, PK> {
 	/**
      * Log variable for all child classes. Uses LogFactory.getLog(getClass()) from Commons Logging
@@ -76,6 +83,9 @@ public class GenericAccessManagerImpl<T extends BaseAccessObject, PK extends Ser
         dao.remove(id);
     }
 
+    /**
+     * {@inheritDoc}
+     */
 	public List<T> getAllForPerson(PK personId) {
 		// TODO Auto-generated method stub
 		return this.dao.getAllForPerson(personId);
