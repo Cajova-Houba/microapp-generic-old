@@ -31,6 +31,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @Transactional
 public abstract class BaseDaoTestCase {
 
+	/**
+	 * Name of the entity manager factory bean located in 
+	 * applicationContext-microappName-jpa.xml
+	 */
 	private final String ENTITY_MANAGER_FACTORY = "entityManagerFactoryGeneric"; 
 	
 	/**
