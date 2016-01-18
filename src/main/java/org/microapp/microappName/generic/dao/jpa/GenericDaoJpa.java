@@ -86,6 +86,10 @@ public class GenericDaoJpa<T, PK extends Serializable> implements GenericDao<T, 
         return this.entityManager;
     }
 
+    public Class<T> getPersistentClass() {
+    	return this.persistentClass;
+    }
+    
     /**
      * {@inheritDoc}
      */
