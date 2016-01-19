@@ -27,6 +27,7 @@ public class GenericAccessManagerImpl<T extends BaseAccessObject, PK extends Ser
     }
 
     public GenericAccessManagerImpl(GenericAccessDao<T, PK> genericDao) {
+    	super(genericDao);
         this.dao = genericDao;
     }
 
