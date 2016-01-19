@@ -30,6 +30,9 @@ public class GenericAccessDaoJpa<T extends BaseAccessObject, PK extends Serializ
         super(persistentClass, entityManager);
     }
 	
+    /**
+     * {@inheritDoc}
+     */
 	public List<T> getAllForPerson(PK personId) {
 		// TODO Auto-generated method stub
 		String query = "SELECT obj FROM "+getPersistentClass().getName()+ " obj WHERE "+BaseAccessObject.ACCESS_ID_COLUMN_NAME+"=?";
