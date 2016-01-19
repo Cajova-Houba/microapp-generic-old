@@ -20,6 +20,7 @@ import org.hibernate.search.SearchException;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.Search;
 import org.microapp.microappName.generic.dao.GenericDao;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -135,6 +136,10 @@ public class GenericDaoJpa<T, PK extends Serializable> implements GenericDao<T, 
     /**
      * {@inheritDoc}
      */
+    @Transactional (
+    		value = "transactionManagerClubs",
+    		propagation = Propagation.REQUIRES_NEW
+    		)
     public T save(T object) {
         return this.entityManager.merge(object);
     }
