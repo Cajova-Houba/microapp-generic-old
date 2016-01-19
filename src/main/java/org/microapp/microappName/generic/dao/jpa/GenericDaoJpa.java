@@ -20,8 +20,6 @@ import org.hibernate.search.SearchException;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.Search;
 import org.microapp.microappName.generic.dao.GenericDao;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * This class serves as the Base class for all other DAOs - namely to hold
