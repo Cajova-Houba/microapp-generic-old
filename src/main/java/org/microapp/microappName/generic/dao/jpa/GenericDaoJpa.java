@@ -137,7 +137,7 @@ public class GenericDaoJpa<T, PK extends Serializable> implements GenericDao<T, 
      * {@inheritDoc}
      */
     @Transactional (
-    		value = "transactionManagerClubs",
+    		value = "transactionManagerGeneric",
     		propagation = Propagation.REQUIRES_NEW
     		)
     public T save(T object) {
